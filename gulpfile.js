@@ -17,8 +17,9 @@ gulp.task('js', ['jsmin']);
 gulp.task('sass', function () {
 
     return gulp.src([
-        'assets/sass/homepage.scss',
-        'node_modules/bulma/bulma.sass'
+        'node_modules/bulma/bulma.sass',
+        'assets/sass/homepage.scss'
+
 
     ])
         .pipe(sass())
@@ -29,8 +30,9 @@ gulp.task('sass', function () {
 gulp.task('concatcss', ['sass'], function () {
 
     return gulp.src([
-        'assets/css/homepage.css',
-        'assets/css/bulma.css'
+        'assets/css/bulma.css',
+        'assets/css/homepage.css'
+
 
 
     ])
@@ -42,12 +44,12 @@ gulp.task('concatcss', ['sass'], function () {
 gulp.task('cssmin', ['concatcss'], function () {
 
     return gulp.src([
-        'www/css/all.css'
+        'assets/css/all.css'
 
     ])
         .pipe(min())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('www/assets/css'));
+        .pipe(gulp.dest('assets/css'));
 });
 
 // gulp.task('concatjs', ['cssmin'], function() {
